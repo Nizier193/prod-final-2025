@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - MODEL_NAME=liquid/lfm-7b
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASEURL=${OPENAI_BASEURL}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL}
+      - DATABASE_URI=postgresql+psycopg2://PROD:PROD@postgres:5432/PROD
+      - CACHE_HOST=redis
+      - CACHE_PORT=6379
+      - S3_ENDPOINT_URL=https://storage.yandexcloud.net
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - BUCKET_NAME=${BUCKET_NAME}
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./backend/app:/app/app
+
+  postgres:
+    image: postgres:13
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: PROD
+      POSTGRES_PASSWORD: PROD
+      POSTGRES_DB: PROD 
+    networks:
+      - app-network
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U PROD"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  streamlit:
+    build: ./streamlit-dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_BASEURL=${BACKEND_BASEURL}
+    env_file:
+      - .env
+    volumes:
+      - ./streamlit-dashboard/app:/app
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+
+
+  telegram-bot:
+    build: ./telegram-bot
+    env_file:
+      - .env
+    environment:
+      - BACKEND_BASEURL=${BACKEND_BASEURL}
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+    volumes:
+      - ./telegram-bot/app:/app
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # testing-service:
+  #   build: ./testing-service
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - backend
+  #   command: unit
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

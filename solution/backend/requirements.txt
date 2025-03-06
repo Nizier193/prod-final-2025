@@ -1,0 +1,9 @@
+uvicorn[standard]
+fastapi[standard]
+pydantic-settings
+sqlalchemy
+psycopg2
+redis
+openai
+httpx
+boto3

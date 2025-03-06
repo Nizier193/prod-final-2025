@@ -1,0 +1,43 @@
+[
+    {
+        "client_id": "ec02ff04-6fe4-4aa5-b40c-23259847fae6",
+        "login": "GGADBBBEEF",
+        "age": 30,
+        "location": "DGBADHFBDH",
+        "gender": "BINARY"
+    },
+    {
+        "client_id": "4c9d1b9d-ba16-4b8a-b7ee-b763c12f6d11",
+        "login": "GGADBBBEEF",
+        "age": 30,
+        "location": 0,
+        "gender": "MALE"
+    },
+    {
+        "client_id": "3a325bea-02c6-489e-9df2-04e84576b550",
+        "login": "GGADBBBEEF",
+        "age": "30",
+        "location": "DGBADHFBDH",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "abcdefg",
+        "login": "GGADBBBEEF",
+        "age": 30,
+        "location": "DGBADHFBDH",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "238001ee-2257-4b3f-991c-24f0b7fb6a7e",
+        "login": 1,
+        "age": 30,
+        "location": "DGBADHFBDH",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "f59103b3-df5f-4962-abec-db7cd4da34a9",
+        "login": "GGADBBBEEF",
+        "age": 30,
+        "location": "DGBADHFBDH"
+    }
+]

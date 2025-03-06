@@ -1,0 +1,72 @@
+[
+    {
+        "client_id": "c5c790c7-97b2-42d3-a637-36ddbf3b8672",
+        "login": "DGCBEAAFFA",
+        "age": 72,
+        "location": "GDGDCAECHC",
+        "gender": "FEMALE"
+    },
+    {
+        "client_id": "99ac2fdf-fe31-41d3-8e4c-bafe6b6cf1bb",
+        "login": "DFGFACHEHA",
+        "age": 61,
+        "location": "HHHEEBDCBE",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "22afab68-5e8f-4088-919f-2f7697b30d15",
+        "login": "GFECAFCHCG",
+        "age": 10,
+        "location": "DGEHFACDEB",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "cd2d6751-e18a-4e2d-a65a-dcfa2cbc72d5",
+        "login": "HACBGGDCFD",
+        "age": 72,
+        "location": "ABAGCFBCDG",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "32916e5f-b98b-4918-87bd-728ebfdd3115",
+        "login": "GBBECDEEAF",
+        "age": 5,
+        "location": "HDAEDEEADD",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "26164b7c-fa7e-44b4-a943-f635cae63852",
+        "login": "CCAHHGHHGE",
+        "age": 41,
+        "location": "DCFBEEEFFF",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "4174df4b-36eb-4577-8612-650c19675806",
+        "login": "BHFFECEGFA",
+        "age": 61,
+        "location": "CCAHBDAEHF",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "5f495824-7d63-4a64-a508-79a4611ecc18",
+        "login": "EBAEBDBAGA",
+        "age": 90,
+        "location": "AADBEGADAH",
+        "gender": "FEMALE"
+    },
+    {
+        "client_id": "32d1e7e9-7b6f-4c47-abad-f767850ec1ae",
+        "login": "DEEBDCGBDH",
+        "age": 26,
+        "location": "FBBFFEFBCE",
+        "gender": "MALE"
+    },
+    {
+        "client_id": "454278a0-95dd-4313-921e-dfd0469d2eb7",
+        "login": "CAEHHDDGEA",
+        "age": 87,
+        "location": "AAHHCEEBHH",
+        "gender": "MALE"
+    }
+]
